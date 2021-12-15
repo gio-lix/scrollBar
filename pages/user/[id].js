@@ -46,7 +46,6 @@ const UserPage = () => {
         setCheck(false)
         router.push({
             pathname: `/user/${id}`,
-            id: id
         })
     }
 

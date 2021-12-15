@@ -21,7 +21,6 @@ export default function Home() {
     const handleClick = (id) => {
         router.push({
             pathname: `/user/${id}`,
-            id: id
         })
     }
 
