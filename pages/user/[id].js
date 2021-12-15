@@ -110,7 +110,7 @@ const UserPage = () => {
                 <div  className='flex flex-wrap px-5'>
                     {detailOfUser?.map((user, i) => (
                         <div key={`${i}_${user.name}`} className='flex'>
-                            <div onClick={() => showDetailUser(user.id )}  className='flex space-x-3 cursor-pointer  underline text-violet-900  '>
+                            <div onClick={() => showDetailUser(user.id )}  className='flex active:text-red-700 space-x-3 cursor-pointer  underline text-violet-900  '>
                                 <span>{user.prefix}</span>
                                 <div className='flex space-x-1'>
                                     <p> {user.name}</p>
