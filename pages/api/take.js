@@ -8,7 +8,7 @@ export const getUsers = {
         const {data} = await axios.get(`http://sweeftdigital-intern.eu-central-1.elasticbeanstalk.com/user/${userID}/friends/${page}/12`)
         return data
     },
-   async fetUserid ( id) {
+   async fetchUserId ( id) {
        const {data} = await axios.get(`http://sweeftdigital-intern.eu-central-1.elasticbeanstalk.com/user/${id}`)
        return data
    }

@@ -31,7 +31,7 @@ const UserPage = () => {
     useEffect(() => {
         const userId = async () => {
             try {
-                const userdata = await getUsers.fetUserid(id)
+                const userdata = await getUsers.fetchUserId(id)
                 setDetailOfUser( [ userdata,...detailOfUser])
             } catch (err) {
                 console.log(err)
