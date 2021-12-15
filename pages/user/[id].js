@@ -22,7 +22,6 @@ const UserPage = () => {
     const handleScroll = () => {
         const scrollHeight = Math.ceil(window.scrollY + window.innerHeight)
         const windowHeight = document.documentElement.scrollHeight
-        console.log(scrollHeight, windowHeight)
         if (scrollHeight === windowHeight) {
             setPage(prev => prev + 1)
         }
@@ -133,7 +132,7 @@ const UserPage = () => {
                     <Items key={`${i}_${el.name}`} handleClick={handleClick} {...el} />
                 )))}
             </div>
-            {loading &&   <Loading />}
+            {loading &&  <Loading />}
         </>
     );
 };
