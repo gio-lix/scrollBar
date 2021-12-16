@@ -88,7 +88,7 @@ const UserPage = () => {
                 ) : (
                     <>
                         <Info
-                            id={detailOfUser[0]?.id}
+                            id={`${id}`}
                             name={detailOfUser[0]?.name}
                             image={detailOfUser[0]?.imageUrl}
                             lastName={detailOfUser[0]?.lastName}
