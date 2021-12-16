@@ -67,7 +67,7 @@ const UserPage = () => {
                         <Info
                             id={showUser?.id}
                             name={showUser?.name}
-                            image={`${showUser?.imageUrl}/${id}`}
+                            image={showUser?.imageUrl}
                             lastName={showUser?.lastName}
                             prefix={showUser?.prefix}
                             title={showUser?.title}
@@ -88,8 +88,9 @@ const UserPage = () => {
                 ) : (
                     <>
                         <Info
+                            id={detailOfUser[0]?.id}
                             name={detailOfUser[0]?.name}
-                            image={`${detailOfUser[0]?.imageUrl}/${id}`}
+                            image={detailOfUser[0]?.imageUrl}
                             lastName={detailOfUser[0]?.lastName}
                             prefix={detailOfUser[0]?.prefix}
                             title={detailOfUser[0]?.title}
