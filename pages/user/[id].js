@@ -54,7 +54,7 @@ const UserPage = () => {
         setShowUser(filterData[0])
         setCheck(true)
     }
-    console.log('userdata', detailOfUser);
+    console.log('friends', friends);
     return (
         <>
             <Head>
