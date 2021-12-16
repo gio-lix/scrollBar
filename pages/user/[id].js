@@ -9,7 +9,7 @@ import Head from 'next/head'
 
 const UserPage = () => {
     const router = useRouter()
-    const {setPage, friends, setUserFriendsId, setFriends, loading} = useContext(Store)
+    const {setPage, friends, setUserFriendsId, setFriends, loading, setCount} = useContext(Store)
     const [detailOfUser, setDetailOfUser] = useState([]);
     const [check, setCheck] = useState(false);
     const [showUser, setShowUser] = useState();
@@ -47,6 +47,7 @@ const UserPage = () => {
     }
 
     const handleClick = (id) => {
+        setCount(pre => pre + 1)
         setFriends([])
         setUserFriendsId(Number(id))
         setPage(1)

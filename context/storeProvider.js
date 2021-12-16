@@ -4,7 +4,7 @@ import {getUsers} from "../pages/api/take";
 export const Store = createContext()
 
 export default function StoreProvider ({children}) {
-
+    const [count, setCount] = useState(0);
     const [loading, setLoading] = useState(false);
     const [arrOfUsers, setArrOfUsers] = useState([]);
     const [pageNum, setPageNum] = useState(1);
@@ -13,13 +13,13 @@ export default function StoreProvider ({children}) {
     const [page, setPage] = useState(1);
     const [friends, setFriends] = useState([]);
 
+
     // get all friends
     useEffect(() => {
         const friendsData = async () => {
             try {
                 setLoading(true)
                 const data = await getUsers.fetchDUserFriends(userFriendsId, page)
-                console.log('---------data------------',data)
                 setFriends([...friends, ...data.list])
             } catch (err) {
                 console.log(err)
@@ -28,7 +28,7 @@ export default function StoreProvider ({children}) {
             }
         }
         friendsData()
-    }, [page, userFriendsId]);
+    }, [userFriendsId, page, count]);
 
 
     // get all users
@@ -50,7 +50,7 @@ export default function StoreProvider ({children}) {
 
 
     return (
-        <Store.Provider value={{loading,arrOfUsers, setUserFriendsId, setFriends, friends , setPageNum, pageNum, setPage}}>
+        <Store.Provider value={{count, loading,setCount,arrOfUsers, setUserFriendsId, setFriends, friends , setPageNum, pageNum, setPage}}>
                 {children}
         </Store.Provider>
     )
