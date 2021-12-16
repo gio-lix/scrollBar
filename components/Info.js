@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Info = ({
+                  id,
                   name, image,
                   lastName,
                   prefix,
@@ -20,7 +21,7 @@ const Info = ({
     return (
         <div className='p-5 flex items-center h-auto  '>
             <div className='w-72 h-52   '>
-                <img src={`${image}`} className='w-72 h-52' alt="img"/>
+                <img src={`${image}/${id}`} className='w-72 h-52' alt="img"/>
             </div>
             <div className=' grow p-5 relative'>
                 <p className='bg-white absolute top-2 left-10'>info</p>

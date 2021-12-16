@@ -54,7 +54,7 @@ const UserPage = () => {
         setShowUser(filterData[0])
         setCheck(true)
     }
-
+    console.log('userdata', detailOfUser);
     return (
         <>
             <Head>
@@ -65,6 +65,7 @@ const UserPage = () => {
                 {check ? (
                     <>
                         <Info
+                            id={showUser?.id}
                             name={showUser?.name}
                             image={`${showUser?.imageUrl}/${id}`}
                             lastName={showUser?.lastName}
