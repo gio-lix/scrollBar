@@ -15,7 +15,6 @@ const UserPage = () => {
     const [showUser, setShowUser] = useState();
     const {id} = router.query
 
-
     useEffect(() => {
         window.addEventListener('scroll', handleScroll)
     }, []);
@@ -29,6 +28,7 @@ const UserPage = () => {
 
     // fetch user data by ID
     useEffect(() => {
+        if (detailOfUser.some(el => el.id === Number(id))) return
         const userId = async () => {
             try {
                 const userdata = await getUsers.fetchUserId(id)
@@ -39,6 +39,13 @@ const UserPage = () => {
         }
         userId()
     }, [id]);
+
+    const showDetailUser = (id) => {
+        const filterData = detailOfUser.filter(el => el.id === id)
+        setShowUser(filterData[0])
+        setCheck(true)
+    }
+
     const handleClick = (id) => {
         setFriends([])
         setUserFriendsId(Number(id))
@@ -49,12 +56,8 @@ const UserPage = () => {
         })
     }
 
-    const showDetailUser = (id) => {
-        const filterData = detailOfUser.filter(el => el.id === id)
-        setShowUser(filterData[0])
-        setCheck(true)
-    }
-    console.log('friends', friends);
+    const defaultValue = detailOfUser.filter(el => el.id === +id)
+
     return (
         <>
             <Head>
@@ -89,23 +92,23 @@ const UserPage = () => {
                     <>
                         <Info
                             id={`${id}`}
-                            name={detailOfUser[0]?.name}
-                            image={detailOfUser[0]?.imageUrl}
-                            lastName={detailOfUser[0]?.lastName}
-                            prefix={detailOfUser[0]?.prefix}
-                            title={detailOfUser[0]?.title}
-                            email={detailOfUser[0]?.email}
-                            ip={detailOfUser[0]?.ip}
-                            jobArea={detailOfUser[0]?.jobArea}
-                            jobType={detailOfUser[0]?.jobType}
-                            jobDescriptor={detailOfUser[0]?.jobDescriptor}
-                            company={detailOfUser[0]?.company.name}
-                            suffix={detailOfUser[0]?.company.suffix}
-                            city={detailOfUser[0]?.address.city}
-                            country={detailOfUser[0]?.address.country}
-                            state={detailOfUser[0]?.address.state}
-                            streetAddress={detailOfUser[0]?.address.streetAddress}
-                            zipCode={detailOfUser[0]?.address.zipCode}
+                            name={defaultValue[0]?.name}
+                            image={defaultValue[0]?.imageUrl}
+                            lastName={defaultValue[0]?.lastName}
+                            prefix={defaultValue[0]?.prefix}
+                            title={defaultValue[0]?.title}
+                            email={defaultValue[0]?.email}
+                            ip={defaultValue[0]?.ip}
+                            jobArea={defaultValue[0]?.jobArea}
+                            jobType={defaultValue[0]?.jobType}
+                            jobDescriptor={defaultValue[0]?.jobDescriptor}
+                            company={defaultValue[0]?.company.name}
+                            suffix={defaultValue[0]?.company.suffix}
+                            city={defaultValue[0]?.address.city}
+                            country={defaultValue[0]?.address.country}
+                            state={defaultValue[0]?.address.state}
+                            streetAddress={defaultValue[0]?.address.streetAddress}
+                            zipCode={defaultValue[0]?.address.zipCode}
                         />
                     </>
                 )}

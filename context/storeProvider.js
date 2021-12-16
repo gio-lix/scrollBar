@@ -19,6 +19,7 @@ export default function StoreProvider ({children}) {
             try {
                 setLoading(true)
                 const data = await getUsers.fetchDUserFriends(userFriendsId, page)
+                console.log('---------data------------',data)
                 setFriends([...friends, ...data.list])
             } catch (err) {
                 console.log(err)
